@@ -1,0 +1,66 @@
+/* .container {
+    display: flex;
+    justify-content: center;
+} */
+
+.addImage {
+    display: flex;
+    justify-content: center;
+}
+.image {
+    width: 700px;
+    height: 230px;
+    background: #F6F5F4;
+border-radius: 15px;
+margin-top: 30px;
+}
+
+.inputTitle {
+    display: flex;
+    justify-content: center;
+}
+.inputTitle input {
+    width: 700px;
+    height: 50px;
+    background: #F6F5F4;
+border-radius: 15px;
+margin-top: 30px;
+border: none;
+padding: 30px;
+}
+
+.inputIngredients {
+    display: flex;
+    justify-content: center;
+}
+
+.inputIngredients textarea {
+    width: 700px;
+    height: 230px;
+    background: #F6F5F4;
+border-radius: 15px;
+margin-top: 30px;
+border: none;
+padding: 30px;
+}
+
+.addVideo {
+    display: flex;
+    justify-content: center;
+}
+.addVideo input {
+    width: 700px;
+    height: 50px;
+    background: #F6F5F4;
+border-radius: 15px;
+margin-top: 30px;
+border: none;
+padding: 30px;
+}
+
+.btnPost {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}

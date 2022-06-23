@@ -1,0 +1,130 @@
+.content {
+  margin-top: 100px;
+  padding-left: 100px;
+  width: 100%;
+  height: 345px;
+}
+.title h1 {
+  font-family: "Airbnb Cereal App";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 90px;
+  text-transform: capitalize;
+  color: #2e266f;
+}
+.title h2 {
+  font-family: "Airbnb Cereal App";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 90px;
+  text-transform: capitalize;
+  color: #2e266f;
+  position: relative;
+  bottom: 55px;
+}
+
+.title input {
+  padding: 10px;
+  width: 320px;
+  position: relative;
+  bottom: 70px;
+}
+
+.profile {
+  position: absolute;
+  left: 950px;
+  bottom: 380px;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+.profile img {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.profile p {
+  position: absolute;
+  top: 3px;
+  left: 33px;
+  font-family: "Airbnb Cereal App";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #ffffff;
+}
+.layer1 {
+  position: absolute;
+  left: 779px;
+  bottom: 0px;
+  width: 300px;
+  height: 700px;
+  background: #efc81a;
+}
+
+.imageLettuce img {
+  position: absolute;
+  left: 650px;
+  top: 35px;
+  width: 265px;
+  height: 250px;
+}
+
+.imageSalad img {
+  position: absolute;
+  left: 550px;
+  top: 100px;
+  width: 400px;
+  height: 400px;
+}
+
+.box2 {
+  width: 10px;
+  height: 60px;
+  background: #efc81a;
+  margin-left: 100px;
+  margin-right: 20px;
+}
+.popularRecipe {
+  font-family: "Airbnb Cereal App";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 62px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  color: #3f3a3a;
+}
+
+.cards {
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 150px;
+  height: 150px;
+  column-gap: 5px;
+  border-radius: 15px;
+}
+
+.cardImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+}
+
+.cards p {
+  position: relative;
+  bottom: 50px;
+  left: 15px;
+  font-family: "Airbnb Cereal App";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 42px;
+  text-transform: capitalize;
+  color: #fff;
+}

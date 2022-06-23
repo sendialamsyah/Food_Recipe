@@ -1,0 +1,76 @@
+.title h1 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Airbnb Cereal App';
+font-style: normal;
+font-weight: 500;
+font-size: 52px;
+line-height: 90px;
+text-transform: capitalize;
+color: #2E266F;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+.image img {
+    width: 400px;
+    height: 200px;
+}
+.ingredients h4 {
+    font-family: 'Airbnb Cereal App';
+font-style: normal;
+font-weight: 500;
+font-size: 38px;
+line-height: 62px;
+text-transform: capitalize;
+color: #3F3A3A;
+padding-top: 50px;
+}
+
+.ingredients {
+    padding-left: 100px;
+}
+
+.ingredients img {
+    height: 13px;
+    width: 13px;
+}
+
+.inputComment {
+    padding-top: 50px;
+    margin-left: 100px;
+}
+
+.inputComment textarea {
+    width: 780px;
+height: 200px;
+left: 327px;
+top: 2525px;
+background: #F6F5F4;
+border-radius: 15px;
+padding: 30px;
+}
+
+.inputComment .btnSend {
+    display: flex;
+    justify-content: center;
+}
+
+.comments {
+    padding-top: 30px;
+    padding-left: 100px;
+    padding-bottom: 150px;
+}
+
+.comments h4 {
+    font-family: 'Airbnb Cereal App';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 62px;
+    text-transform: capitalize;
+    color: #3F3A3A;
+}
