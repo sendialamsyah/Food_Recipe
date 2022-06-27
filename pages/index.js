@@ -3,9 +3,12 @@ import MyLayout from "../components/layout/MyLayout";
 import styles from "../styles/Home.module.css";
 import Footer from "../components/module/Footer";
 import axios from "axios";
-import Link from 'next/link';
+import Link from "next/link";
+import Cards from "../components/module/Cards";
+import { useRouter } from "next/router";
 
 const Home = () => {
+  const Router = useRouter();
   const [recipe, setRecipe] = useState([]);
   async function fetchData() {
     try {
@@ -32,16 +35,16 @@ const Home = () => {
           <h2>& Delicious Food</h2>
           <input type="text" placeholder="Search Recipe" />
         </div>
-        
+
         <div className={styles.layer1}></div>
         <div className={styles.imageLettuce}>
           <img src="/assets/lettuce.png" alt="lettuce" />
         </div>
-        <Link href='auth/Login'>
-        <div className={styles.profile}>
-          <img src='/assets/User icon.png'/>
-          <p>Login</p>
-        </div>
+        <Link href="auth/Login">
+          <div className={styles.profile}>
+            <img src="/assets/User icon.png" />
+            <p>Login</p>
+          </div>
         </Link>
         <div className={styles.imageSalad}>
           <img src="/assets/salad.png" alt="salad" />
@@ -51,20 +54,16 @@ const Home = () => {
         <div className={styles.box2}></div>
         <h1>Popular Recipe</h1>
       </div>
-      {recipe.map((item)=>(
-        <div className="row row-cols-5">
-          <Link href={`/DetailRecipe/${item.idrecipe}}`}>
-          <div className={`col ${styles.col}`}>
-            <div className={styles.cards}>
-              <img src={item.image} alt='img' className={styles.cardImage}/>
-              <div className={styles.cardTitle}>
-              <p>{item.title}</p>
-              </div>
-            </div>
-          </div>
-      </Link>
-        </div>
+      <div className={`row row-cols-5 ${styles.warpperCard}`}>
+      {recipe.map((item) => (
+          <button
+            onClick={() => Router.push(`DetailRecipe/${item.idrecipe}`)}
+            className={styles.btnDetail}
+          >
+            <Cards src={item.image} title={item.title} />
+          </button>
       ))}
+      </div>
       <Footer />
     </div>
   );

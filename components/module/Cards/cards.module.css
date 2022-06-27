@@ -1,0 +1,27 @@
+.cards {
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+  }
+  
+  .cardImage {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  .cards p {
+    position: relative;
+    bottom: 50px;
+    left: 15px;
+    font-family: "Airbnb Cereal App";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 42px;
+    text-transform: capitalize;
+    color: #fff;
+  }
+  

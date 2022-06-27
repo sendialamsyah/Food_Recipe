@@ -18,6 +18,7 @@ color: #2E266F;
 .image img {
     width: 400px;
     height: 200px;
+    border-radius: 15px;
 }
 .ingredients h4 {
     font-family: 'Airbnb Cereal App';

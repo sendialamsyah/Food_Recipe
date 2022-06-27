@@ -2,18 +2,17 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import MyLayout from "../../components/layout/MyLayout";
 import styles from "../../styles/Profile.module.css";
-import { useRouter } from "next/router";
 import axios from "axios";
+import {useRouter} from 'next/router'
 
 const Profile = () => {
-  const router = useRouter();
-  const idrecipe = router.query.idrecipe;
+  const Router = useRouter()
   const [recipe, setRecipe] = useState([]);
   async function fetchData() {
     try {
       const result = await axios({
         method: "GET",
-        baseURL: "http://localhost:4000/v1",
+        baseURL: 'http://localhost:4000/v1',
         url: `/recipe`,
       });
       console.log(result);
@@ -28,7 +27,7 @@ const Profile = () => {
 
   const deleteProduct = (idrecipe) => {
     axios.delete(`http://localhost:4000/v1/recipe/${idrecipe}`).then(() => {
-      alert("delete success");
+      alert("delete recipe success");
       fetchData();
     });
   };
@@ -55,8 +54,8 @@ const Profile = () => {
           <hr />
         </div>
         <div className={styles.myRecipe}>
+        <div className={`row row-cols-5 ${styles.warpperCard}`}>
           {recipe.map((item) => (
-            <div className="row row-cols-5">
                 <div className={`col ${styles.col}`}>
                   <div className={styles.cards}>
                     <img
@@ -67,18 +66,18 @@ const Profile = () => {
                     <div className={styles.cardTitle}>
                       <p>{item.title}</p>
                     </div>
-                    <div>
+                    <div className={styles.editBtn}>
+                      <button onClick={()=>Router.push(`/EditRecipe/${item.idrecipe}`)} className={styles.edit}><img src="/assets/iconedit.png" alt="" /></button>
                       <button
                         onClick={() => deleteProduct(item.idrecipe)}
-                        className={styles.delete}
-                      >
-                        X
+                        className={styles.delete}>
+                        <img src="/assets/icondelete.png" alt="" />
                       </button>
                     </div>
                   </div>
                 </div>
-            </div>
           ))}
+          </div>
         </div>
         <div className={styles.footer}>
           <p>

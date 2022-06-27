@@ -111,8 +111,9 @@
 }
 
 .cardImage {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 15px;
 }
 
@@ -127,4 +128,17 @@
   line-height: 42px;
   text-transform: capitalize;
   color: #fff;
+}
+
+.warpperCard {
+  margin-left: 100px;
+  margin-bottom: 100px;
+  gap: 16px;
+}
+.btnDetail {
+  border: none;
+  background: none;
+  text-align: center;
+  height: 150px;
+  width: 150px;
 }

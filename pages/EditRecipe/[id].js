@@ -1,13 +1,32 @@
-import MyLayout from "../components/layout/MyLayout";
-import styles from "../styles/AddRecipe.module.css";
-import Button from "../components/base/Button";
-import Footer from "../components/module/Footer";
-import { useState } from "react";
+import MyLayout from "../../components/layout/MyLayout";
+import styles from "../../styles/AddRecipe.module.css";
+import Button from "../../components/base/Button";
+import Footer from "../../components/module/Footer";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from 'next/router'
 
-const AddRecipe = () => {
-  const Router = useRouter()
+const EditRecipe = () => {
+    const Router = useRouter()
+    const id = Router.query.id
+    const [editRecipe, setEditRecipe] = useState([]);
+  async function fetchData(id) {
+    try {
+      const result = await axios({
+        method: "GET",
+        baseURL: "http://localhost:4000/v1",
+        url: `/recipe/${id}`,
+      });
+      console.log(result);
+      setEditRecipe(result.data.data);
+    } catch (error) {
+      // console.log(error.response);
+    }
+  }
+  useEffect(() => {
+    fetchData(id);
+  }, [id]);
+  
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
@@ -35,15 +54,15 @@ const AddRecipe = () => {
     formData.append("ingredients", ingredients);
     formData.append("video", video.file); 
      await axios
-      .post("http://localhost:4000/v1/recipe", formData, {
+      .put(`http://localhost:4000/v1/recipe/${id}`, formData, {
         "content-type": "multipart/form-data",
       })
       .then(() => {
         Router.push("/Profile");
-        alert("insert recipe success");
+        alert("update recipe success");
       })
       .catch((error) => {
-        alert("insert recipe failed");
+        alert("update recipe failed");
         console.log(error);
       });
   };
@@ -68,7 +87,7 @@ const AddRecipe = () => {
             type="text"
             name="title"
             id="title"
-            value={title}
+            defaultValue={editRecipe.title}
             placeholder="Title"
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -77,7 +96,7 @@ const AddRecipe = () => {
           <textarea
             name="ingredients"
             id="ingredients"
-            value={ingredients}
+            defaultValue={editRecipe.ingredients}
             cols="100%"
             rows="100%"
             placeholder="Ingredients"
@@ -102,4 +121,4 @@ const AddRecipe = () => {
   );
 };
 
-export default AddRecipe;
+export default EditRecipe;
