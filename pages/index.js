@@ -48,7 +48,7 @@ const Home = ({recipes}) => {
             onClick={() => Router.push(`DetailRecipe/${item.idrecipe}`)}
             className={styles.btnDetail}
           >
-            <Cards src={item.image} title={item.title} key={item.idrecipe}/>
+            <Cards src={item.image} title={item.title}/>
           </button>
           </div>
       ))}
@@ -66,7 +66,7 @@ export async function getServerSideProps(context) {
   //   })
   //   return {}
   // }
-  const {data:resData} = await axios.get('http://localhost:4000/v1/recipe')
+  const {data:resData} = await axios.get(`${process.env.BACKEND_API}/recipe`)
   return {
     props: {
       recipes: resData.data

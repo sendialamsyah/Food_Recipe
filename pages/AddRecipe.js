@@ -5,6 +5,7 @@ import Footer from "../components/module/Footer";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from 'next/router'
+import TextArea from '../components/base/TextArea'
 
 const AddRecipe = () => {
   const Router = useRouter()
@@ -74,7 +75,7 @@ const AddRecipe = () => {
           />
         </div>
         <div className={styles.inputIngredients}>
-          <textarea
+          <TextArea
             name="ingredients"
             id="ingredients"
             value={ingredients}
@@ -82,7 +83,7 @@ const AddRecipe = () => {
             rows="100%"
             placeholder="Ingredients"
             onChange={(e) => setIngredients(e.target.value)}
-          ></textarea>
+          ></TextArea>
         </div>
         <div className={styles.addVideo}>
           <input
