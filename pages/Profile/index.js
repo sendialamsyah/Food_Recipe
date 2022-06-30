@@ -3,32 +3,33 @@ import React, { useEffect, useState } from "react";
 import MyLayout from "../../components/layout/MyLayout";
 import styles from "../../styles/Profile.module.css";
 import axios from "axios";
-import {useRouter} from 'next/router'
+import { useRouter } from "next/router";
+import Cards from "../../components/module/Cards";
 
-const Profile = () => {
-  const Router = useRouter()
-  const [recipe, setRecipe] = useState([]);
-  async function fetchData() {
-    try {
-      const result = await axios({
-        method: "GET",
-        baseURL: 'http://localhost:4000/v1',
-        url: `/recipe`,
-      });
-      console.log(result);
-      setRecipe(result.data.data);
-    } catch (error) {
-      // console.log(error.response);
-    }
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
+const Profile = ({recipes}) => {
+  const Router = useRouter();
+  // const [recipe, setRecipe] = useState([]);
+  // async function fetchData() {
+  //   try {
+  //     const result = await axios({
+  //       method: "GET",
+  //       baseURL: "http://localhost:4000/v1",
+  //       url: `/recipe`,
+  //     });
+  //     // console.log(result);
+  //     setRecipe(result.data.data);
+  //   } catch (error) {
+  //     // console.log(error);
+  //   }
+  // }
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   const deleteProduct = (idrecipe) => {
-    axios.delete(`http://localhost:4000/v1/recipe/${idrecipe}`).then(() => {
+    axios.delete(`http://localhost:4000/v1/recipe/${idrecipe}`, {withCredentials: true})
+    .then(() => {
       alert("delete recipe success");
-      fetchData();
     });
   };
   return (
@@ -54,29 +55,26 @@ const Profile = () => {
           <hr />
         </div>
         <div className={styles.myRecipe}>
-        <div className={`row row-cols-5 ${styles.warpperCard}`}>
-          {recipe.map((item) => (
-                <div className={`col ${styles.col}`}>
-                  <div className={styles.cards}>
-                    <img
-                      src={item.image}
-                      alt="img"
-                      className={styles.cardImage}
-                    />
-                    <div className={styles.cardTitle}>
-                      <p>{item.title}</p>
-                    </div>
-                    <div className={styles.editBtn}>
-                      <button onClick={()=>Router.push(`/EditRecipe/${item.idrecipe}`)} className={styles.edit}><img src="/assets/iconedit.png" alt="" /></button>
-                      <button
-                        onClick={() => deleteProduct(item.idrecipe)}
-                        className={styles.delete}>
-                        <img src="/assets/icondelete.png" alt="" />
-                      </button>
-                    </div>
-                  </div>
+          <div className='row row-cols-5'>
+            {recipes.map((item) => (
+              <div className={styles.Cards}>
+                <Cards src={item.image} title={item.title} />
+                <div className={styles.editBtn}>
+                  <button
+                    onClick={() => Router.push(`/EditRecipe/${item.idrecipe}`)}
+                    className={styles.edit}
+                  >
+                    <img src="/assets/iconedit.png" alt="" />
+                  </button>
+                  <button
+                    onClick={() => deleteProduct(item.idrecipe)}
+                    className={styles.delete}
+                  >
+                    <img src="/assets/icondelete.png" alt="" />
+                  </button>
                 </div>
-          ))}
+              </div>
+            ))}
           </div>
         </div>
         <div className={styles.footer}>
@@ -90,4 +88,19 @@ const Profile = () => {
   );
 };
 
+export async function getServerSideProps(context) {
+  const cookie = context.req.headers.cookie
+  if(!cookie){
+    context.res.writeHead(302, {
+      Location: `http://localhost:3000/auth/Login`
+    })
+    return {}
+  }
+  const {data:resData} = await axios.get('http://localhost:4000/v1/recipe')
+  return {
+    props: {
+      recipes: resData.data
+    }, // will be passed to the page component as props
+  }
+}
 export default Profile;

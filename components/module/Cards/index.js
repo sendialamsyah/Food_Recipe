@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./cards.module.css";
 
-const Cards = ({src, title}) => {
+const Cards = ({src, title, ...props}) => {
   return (
     <>
         <div className={`col ${styles.col}`}>

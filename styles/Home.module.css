@@ -133,7 +133,8 @@
 .warpperCard {
   margin-left: 100px;
   margin-bottom: 100px;
-  gap: 16px;
+  margin-right: 100px;
+  gap: 1px;
 }
 .btnDetail {
   border: none;
@@ -141,4 +142,8 @@
   text-align: center;
   height: 150px;
   width: 150px;
+}
+
+.warpperCard .row {
+  gap: 5px;
 }

@@ -3,13 +3,15 @@ import Input from "../../components/base/Input";
 import Button from "../../components/base/Button";
 import {useRouter} from 'next/router'
 import { useState } from "react";
+import axios from 'axios'
 
 const Register = () => {
   const router = useRouter()
   const [dataRegister, setDataRegister] = useState({
     email: '',
     password: '',
-    name: ''
+    name: '',
+    phonumber: ''
   })
   const handleChange=(e)=>{
     setDataRegister({
@@ -17,9 +19,18 @@ const Register = () => {
       [e.target.name]: e.target.value
     })
   }
-  const handleLogin=()=>{
-
-    console.log(dataLogin)
+  const handleRegister=(e)=>{
+    e.preventDefault()
+    axios.post('http://localhost:4000/v1/user/register', dataRegister)
+    .then(()=>{
+      alert('register success')
+      router.push('/auth/Login')
+    })
+    .catch((error)=>{
+      alert('register failed')
+      console.log(error)
+    })
+    console.log(dataRegister)
   }
   return (
     <>
@@ -35,6 +46,7 @@ const Register = () => {
             <p>Create new account to access all features</p>
             <hr />
             <div className={styles.formWarpper}>
+              <form onSubmit={handleRegister}>
             <label htmlFor="name">Name</label>
               <Input type="text" name='name' id='name' value={dataRegister.name} placeholder='Name' onChange={handleChange} />
               <label htmlFor="email">Email address*</label>
@@ -47,8 +59,9 @@ const Register = () => {
               <Input type="password" name='password' id='password' value={dataRegister.password} placeholder='New Password' onChange={handleChange} />
               <input type="checkbox" name="terms" id="terms" className={styles.check}/>
               <label htmlFor="terms">I agree to terms & conditions</label>
-              <Button title="Register Account" width='300px' height='40px' onClick={()=>router.push('/auth/Login')}/>
-              {/* <Button title="Log In" width='300px' height='40px' type='submit'/> */}
+              {/* <Button title="Register Account" width='300px' height='40px' onClick={()=>router.push('/auth/Login')}/> */}
+              <Button title="Log In" width='300px' height='40px' type='submit'/>
+              </form>
             </div>
             <p className={styles.signUp}>
               Already have account? <span>Log In Here</span>

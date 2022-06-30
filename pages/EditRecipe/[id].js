@@ -17,10 +17,10 @@ const EditRecipe = () => {
         baseURL: "http://localhost:4000/v1",
         url: `/recipe/${id}`,
       });
-      console.log(result);
+      // console.log(result);
       setEditRecipe(result.data.data);
     } catch (error) {
-      // console.log(error.response);
+      console.log(error);
     }
   }
   useEffect(() => {
@@ -55,7 +55,7 @@ const EditRecipe = () => {
     formData.append("video", video.file); 
      await axios
       .put(`http://localhost:4000/v1/recipe/${id}`, formData, {
-        "content-type": "multipart/form-data",
+        "content-type": "multipart/form-data", withCredentials: true
       })
       .then(() => {
         Router.push("/Profile");

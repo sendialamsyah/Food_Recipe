@@ -12,10 +12,9 @@
     border-radius: 15px;
   }
   
-  .cards p {
+  .cardTitle p {
     position: relative;
     bottom: 50px;
-    left: 15px;
     font-family: "Airbnb Cereal App";
     font-style: normal;
     font-weight: 500;

@@ -100,16 +100,18 @@
   }
   .edit {
     position:relative;
-    bottom: 225px;
+    bottom: 150px;
     left: 80px;
     border: none;
+    background: none;
 }
 
   .delete {
     position:relative;
-    bottom: 225px;
+    bottom: 150px;
     left: 80px;
     border: none;
+    background: none;
 }
 
 .warpperCard {

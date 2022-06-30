@@ -77,4 +77,5 @@ const detailRecipe = () => {
   );
 };
 
+
 export default detailRecipe;
