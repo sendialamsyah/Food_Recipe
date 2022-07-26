@@ -2,17 +2,23 @@
   display: flex;
   justify-content: center;
 }
+
+.profileImage img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
 .container p {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  /* padding-top: 20px; */
   font-family: "Airbnb Cereal App";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 31px;
   text-align: center;
-  color: #000000;
+  /* color: #000000; */
 }
 
 .list ul {
@@ -67,6 +73,7 @@
     text-transform: capitalize;
     color: #707070;
     margin-top: 30px;
+    padding-top: 15px;
   }
 
   .cards {

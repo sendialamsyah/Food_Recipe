@@ -1,4 +1,4 @@
-/* .navbar{
+.navbar{
     display: flex;
     width: 100%;
     height: 60px;
@@ -6,7 +6,7 @@
     padding-left: 80px;
     padding-right: 150px;
     justify-content: space-between;
-} */
+}
 
 .links{
     display: flex;
@@ -14,5 +14,32 @@
     gap: 50px;
     padding-left: 50px;
     margin-top: 30px;
-
 }
+.profile {
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 50%;
+  }
+
+  .profile img {
+    width: 20px;
+    height: 20px;
+    margin-left: -26px;
+    margin-right: 15px;
+  }
+  .profile p {
+    /* position: absolute;
+    top: 3px;
+    left: 33px; */
+    font-family: "Airbnb Cereal App";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #ffffff;
+  }
+  .liProfile{
+    display: flex;
+    list-style: none;
+  }

@@ -58,26 +58,27 @@
   color: #ffffff;
 }
 .layer1 {
-  position: absolute;
-  left: 779px;
-  bottom: 0px;
+  /* position: relative; */
+  margin-left: auto;
+  margin-top: -405px;
+  bottom: 380px;
   width: 300px;
-  height: 700px;
+  height: 500px;
   background: #efc81a;
 }
 
 .imageLettuce img {
   position: absolute;
-  left: 650px;
-  top: 35px;
+  left: 930px;
+  top: 10px;
   width: 265px;
   height: 250px;
 }
 
 .imageSalad img {
   position: absolute;
-  left: 550px;
-  top: 100px;
+  left: 830px;
+  top: 80px;
   width: 400px;
   height: 400px;
 }
@@ -102,11 +103,11 @@
 }
 
 .cards {
-  margin-top: 50px;
-  margin-left: 100px;
+  /* margin-top: 50px; */
+  /* margin-left: 100px; */
   width: 150px;
   height: 150px;
-  column-gap: 5px;
+  /* gap: 5px; */
   border-radius: 15px;
 }
 
@@ -134,7 +135,7 @@
   margin-left: 100px;
   margin-bottom: 100px;
   margin-right: 100px;
-  gap: 1px;
+  /* gap: 1px; */
 }
 .btnDetail {
   border: none;
@@ -144,6 +145,6 @@
   width: 150px;
 }
 
-.warpperCard .row {
-  gap: 5px;
+.warpperCard .row{
+  row-gap: 50px;
 }

@@ -27,7 +27,7 @@ const detailRecipe = () => {
     fetchData(id);
   }, [id]);
   return (
-    <div>
+    <div className={styles.container}>
       <MyLayout title="Detail Recipe - Food Recipe" />
       <div className="container">
         <div className={styles.title}>
@@ -43,33 +43,10 @@ const detailRecipe = () => {
           <h4>Video Step</h4>
           <Button
             title={<img src="/assets/Vector (2).png" />}
-            width="200px"
-            height="30px"
+            width="300px"
+            height="50px"
+            onClick={()=>router.push(detailRecipe.video)}
           />
-          <Button
-            title={<img src="/assets/Vector (2).png" />}
-            width="200px"
-            height="30px"
-          />
-          <Button
-            title={<img src="/assets/Vector (2).png" />}
-            width="200px"
-            height="30px"
-          />
-          <Button
-            title={<img src="/assets/Vector (2).png" />}
-            width="200px"
-            height="30px"
-          />
-        </div>
-        <div className={styles.inputComment}>
-          <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
-          <div className={styles.btnSend}>
-            <Button title="Send" width="250px" height="50px" />
-          </div>
-        </div>
-        <div className={styles.comments}>
-          <h4>Comment</h4>
         </div>
       </div>
       <Footer />

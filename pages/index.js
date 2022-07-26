@@ -7,12 +7,12 @@ import Link from "next/link";
 import Cards from "../components/module/Cards";
 import { useRouter } from "next/router";
 
-const Home = ({recipes}) => {
+const Home = ({ recipes }) => {
   const Router = useRouter();
 
   const [page, setPage] = useState({
     currentPage: 1,
-    limit: 3,
+    limit: 10,
     sortby: "price",
     sort: "",
     search: "",
@@ -40,19 +40,19 @@ const Home = ({recipes}) => {
         <div className={styles.box2}></div>
         <h1>Popular Recipe</h1>
       </div>
-        <div className={styles.warpperCard}>
-      <div className='row row-cols-5'>
-      {recipes.map((item) => (
-        <div>
-          <button
-            onClick={() => Router.push(`DetailRecipe/${item.idrecipe}`)}
-            className={styles.btnDetail}
-          >
-            <Cards src={item.image} title={item.title}/>
-          </button>
-          </div>
-      ))}
-      </div>
+      <div className={styles.warpperCard}>
+        <div className={`row row-cols-5 ${styles.row}`}>
+          {recipes.map((item) => (
+            <div>
+              <button
+                onClick={() => Router.push(`DetailRecipe/${item.idrecipe}`)}
+                className={styles.btnDetail}
+              >
+                <Cards src={item.image} title={item.title} />
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
       <Footer />
     </div>
@@ -66,11 +66,13 @@ export async function getServerSideProps(context) {
   //   })
   //   return {}
   // }
-  const {data:resData} = await axios.get(`${process.env.BACKEND_API}/recipe`)
+  const { data: resData } = await axios.get(
+    `${process.env.BACKEND_API}/recipe`
+  );
   return {
     props: {
-      recipes: resData.data
+      recipes: resData.data,
     }, // will be passed to the page component as props
-  }
+  };
 }
 export default Home;

@@ -1,9 +1,10 @@
-import styles from "../../styles/Auth.module.css";
+import styles from "../../styles/Auth.register.module.css";
 import Input from "../../components/base/Input";
 import Button from "../../components/base/Button";
 import {useRouter} from 'next/router'
 import { useState } from "react";
 import axios from 'axios'
+import swal from 'sweetalert'
 
 const Register = () => {
   const router = useRouter()
@@ -23,11 +24,11 @@ const Register = () => {
     e.preventDefault()
     axios.post('http://localhost:4000/v1/user/register', dataRegister)
     .then(()=>{
-      alert('register success')
+      swal("Good job!", "Register Success!", "success");
       router.push('/auth/Login')
     })
     .catch((error)=>{
-      alert('register failed')
+      swal("Register Failed!", "", "error");
       console.log(error)
     })
     console.log(dataRegister)
@@ -39,6 +40,13 @@ const Register = () => {
           <div>
             <img src='/assets/image 15.png' alt='img' className={styles.background}/>
           </div>
+        </div>
+        <div className={styles.icon}>
+        <img
+              src="/assets/icon/Group 697.png"
+              alt="img"
+              // className={styles.background}
+            />
         </div>
         <div className={`col-5 ${styles.main}`}>
           <div className={styles.content}>
@@ -57,14 +65,14 @@ const Register = () => {
               <Input type="password" name='password' id='password' value={dataRegister.password} placeholder='Create New Password' onChange={handleChange} />
               <label htmlFor="password">New Password</label>
               <Input type="password" name='password' id='password' value={dataRegister.password} placeholder='New Password' onChange={handleChange} />
-              <input type="checkbox" name="terms" id="terms" className={styles.check}/>
-              <label htmlFor="terms">I agree to terms & conditions</label>
+              {/* <input type="checkbox" name="terms" id="terms" className={styles.check}/>
+              <label htmlFor="terms">I agree to terms & conditions</label> */}
               {/* <Button title="Register Account" width='300px' height='40px' onClick={()=>router.push('/auth/Login')}/> */}
               <Button title="Log In" width='300px' height='40px' type='submit'/>
               </form>
             </div>
             <p className={styles.signUp}>
-              Already have account? <span>Log In Here</span>
+              Already have account? <span onClick={()=>router.push('/auth/Login')}>Log In Here</span>
             </p>
           </div>
         </div>

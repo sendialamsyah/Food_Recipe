@@ -53,16 +53,26 @@ const EditRecipe = () => {
     formData.append("title", title);
     formData.append("ingredients", ingredients);
     formData.append("video", video.file); 
-     await axios
-      .put(`http://localhost:4000/v1/recipe/${id}`, formData, {
-        "content-type": "multipart/form-data", withCredentials: true
-      })
+    //  await axios
+    //   .put(`http://localhost:4000/v1/recipe/${id}`, formData, {
+    //     "content-type": "multipart/form-data", withCredentials: true
+    //   })
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`
+      },
+      // withCredentials : true
+    }
+    await axios
+      .put(`http://localhost:4000/v1/recipe/${id}`, formData, config)
       .then(() => {
+        swal("Good job!", "Insert Recipe Success!", "success");
         Router.push("/Profile");
-        alert("update recipe success");
       })
       .catch((error) => {
-        alert("update recipe failed");
+        swal("Insert Recipe Failed", "", "error");
         console.log(error);
       });
   };
@@ -73,7 +83,10 @@ const EditRecipe = () => {
       <form onSubmit={handlePost}>
         <div className={styles.addImage}>
           <div className={styles.image}>
-            <img src={image.preview} alt="img" />
+          {image.preview?
+            <img src={image.preview} alt="img" width='100%' height='100%' /> :
+            <img src="/assets/icon/add image.png" alt="img" width= '70px' />
+            }
             <input
               type="file"
               name="image"

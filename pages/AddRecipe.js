@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from 'next/router'
 import TextArea from '../components/base/TextArea'
+import swal from 'sweetalert'
 
 const AddRecipe = () => {
   const Router = useRouter()
@@ -35,16 +36,27 @@ const AddRecipe = () => {
     formData.append("title", title);
     formData.append("ingredients", ingredients);
     formData.append("video", video.file); 
-     await axios
-      .post("http://localhost:4000/v1/recipe", formData, {
-        "content-type": "multipart/form-data", withCredentials: true
-      })
+    //  await axios
+    //   .post("http://localhost:4000/v1/recipe", formData, {
+    //     "content-type": "multipart/form-data", withCredentials: true
+    //   })
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`
+      },
+      // withCredentials : true
+    }
+    await axios
+      .post("http://localhost:4000/v1/recipe", formData, config)
       .then(() => {
+        swal("Good job!", "Insert Recipe Success!", "success");
         Router.push("/Profile");
-        alert("insert recipe success");
+        
       })
       .catch((error) => {
-        alert("insert recipe failed");
+        swal("Insert Recipe Failed", "", "error");
         console.log(error);
       });
   };
@@ -55,11 +67,15 @@ const AddRecipe = () => {
       <form onSubmit={handlePost}>
         <div className={styles.addImage}>
           <div className={styles.image}>
-            <img src={image.preview} alt="img" />
+            {image.preview?
+            <img src={image.preview} alt="img" width='100%' height='100%' /> :
+            <img src="/assets/icon/add image.png" alt="img" width= '70px' />
+            }
             <input
               type="file"
               name="image"
               id="image"
+              accept="image/png, image/jpeg, image/jpg"
               onChange={handleChangeImage}
             />
           </div>
@@ -91,6 +107,7 @@ const AddRecipe = () => {
             name="video"
             id="video"
             placeholder="Video"
+            accept="video/mp4"
             onChange={handleChangeVideo}
           />
         </div>
@@ -102,16 +119,16 @@ const AddRecipe = () => {
     </div>
   );
 };
-export async function getServerSideProps(context) {
-  const cookie = context.req.headers.cookie
-  if(!cookie){
-    context.res.writeHead(302, {
-      Location: `http://localhost:3000/auth/Login`
-    })
-    return {}
-  }
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
+// export async function getServerSideProps(context) {
+//   const cookie = context.req.headers.cookie
+//   if(!cookie){
+//     context.res.writeHead(302, {
+//       Location: `http://localhost:3000/auth/Login`
+//     })
+//     return {}
+//   }
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   }
+// }
 export default AddRecipe;

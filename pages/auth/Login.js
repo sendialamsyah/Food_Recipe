@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Link from "next/link";
 import axios from 'axios'
+import swal from 'sweetalert'
 
 const Login = () => {
   const router = useRouter();
@@ -18,15 +19,43 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   axios.post('http://localhost:4000/v1/user/login', dataLogin, {withCredentials: true})
+  //   .then(()=>{
+  //     alert('Login Success')
+  //     router.push('/')
+  //   })
+  //   .catch((error)=>{
+  //     alert('Wrong Email or Password')
+  //     // console.log(error)
+  //   })
+  //   // console.log(dataLogin);
+  // };
   const handleLogin = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:4000/v1/user/login', dataLogin, {withCredentials: true})
-    .then(()=>{
-      alert('Login Success')
+    axios.post('http://localhost:4000/v1/user/login', dataLogin)
+    .then((res)=>{
+      const respData = res.data.data
+      console.log(respData);
+    
+      localStorage.setItem('token', respData.token)
+      localStorage.setItem('refreshToken', respData.refreshToken)
+      swal({
+        title: "Good job!",
+        text: "Login Success",
+        icon: "success",
+        button: "Oke",
+      });
       router.push('/')
     })
     .catch((error)=>{
-      alert('Wrong Email or Password')
+      swal({
+        title: "Login Failed",
+        text: "wrong email or password",
+        icon: "error",
+        button: "Ok",
+      });
       // console.log(error)
     })
     // console.log(dataLogin);
@@ -42,6 +71,13 @@ const Login = () => {
               className={styles.background}
             />
           </div>
+        </div>
+        <div className={styles.icon}>
+        <img
+              src="/assets/icon/Group 697.png"
+              alt="img"
+              // className={styles.background}
+            />
         </div>
         <div className={`col-5 ${styles.main}`}>
           <div className={styles.content}>
@@ -68,13 +104,6 @@ const Login = () => {
                   placeholder="Password"
                   onChange={handleChange}
                 />
-                <input
-                  type="checkbox"
-                  name="terms"
-                  id="terms"
-                  className={styles.check}
-                />
-                <label htmlFor="terms">I agree to terms & conditions</label>
                 {/* <Button title="Log In" width='300px' height='40px' onClick={()=>router.push('/')}/> */}
                 <Button
                   title="Log In"

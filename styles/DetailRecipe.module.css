@@ -75,3 +75,7 @@ padding: 30px;
     text-transform: capitalize;
     color: #3F3A3A;
 }
+
+.container {
+    padding-bottom: -50px;
+}
