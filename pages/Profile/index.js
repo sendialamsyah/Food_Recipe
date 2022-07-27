@@ -10,8 +10,28 @@ import swal from 'sweetalert'
 const Profile = () => {
   const Router = useRouter();
   const [recipe, setRecipe] = useState([]);
-
-
+  const [profile, setProfile] = useState([])
+  async function getProfile() {
+    try {
+      const token = localStorage.getItem('token')
+      const config = {
+        headers: {
+          'content-type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`
+        },
+        // withCredentials : true
+      }
+      const result = await axios.get(`http://localhost:4000/v1/user/profile`, config)
+      // console.log(result);
+      setProfile(result.data.data);
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+  useEffect(() => {
+    getProfile();
+  }, []);
+  console.log(profile)
   async function fetchData() {
     try {
       const result = await axios({
@@ -48,9 +68,9 @@ const Profile = () => {
       <MyLayout title="Profile - Food Recipe" />
       <div className={styles.container}>
         <div className={styles.profileImage}>
-        <img src="/assets/Ellipse 127.png" alt="profile" />
+        <img src={profile.image ? profile.image : "/assets/Ellipse 127.png"} alt="profile" />
         </div>
-        <p>Sendi Alamsyah</p>
+        <p>{profile.name}</p>
         <div className={styles.list}>
           <ul>
             <li>
