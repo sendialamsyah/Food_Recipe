@@ -14,7 +14,7 @@ const StaticPath = ({recipes}) => {
   )
 }
 export async function getStaticPaths() {
-    const { data: resData } = await axios.get(`http://localhost:4000/v1/recipe/`);
+    const { data: resData } = await axios.get(`${process.env.URL}/recipe/`);
     const paths = resData.data.map((item)=>{
         return {
             params: {
@@ -38,7 +38,7 @@ export async function getStaticPaths() {
 
   export async function getStaticProps(context) {
     const id = context.params.id
-    const { data: resData } = await axios.get(`http://localhost:4000/v1/recipe/${id}`);
+    const { data: resData } = await axios.get(`${process.env.URL}/recipe/${id}`);
     return {
       props: {
         recipes: resData.data,

@@ -49,7 +49,7 @@ const AddRecipe = () => {
       // withCredentials : true
     }
     await axios
-      .post("http://localhost:4000/v1/recipe", formData, config)
+      .post(`${process.env.URL}/recipe`, formData, config)
       .then(() => {
         swal("Good job!", "Insert Recipe Success!", "success");
         Router.push("/Profile");

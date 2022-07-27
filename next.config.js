@@ -7,6 +7,6 @@ module.exports = nextConfig
 
 module.exports = {
   env: {
-    URL: 'http://localhost:4000/v1',
+    URL: 'https://food-recipe22.herokuapp.com/v1',
   },
 }

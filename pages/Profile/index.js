@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import MyLayout from "../../components/layout/MyLayout";
@@ -21,7 +22,7 @@ const Profile = () => {
         },
         // withCredentials : true
       }
-      const result = await axios.get(`http://localhost:4000/v1/user/profile`, config)
+      const result = await axios.get(`${process.env.URL}/user/profile`, config)
       // console.log(result);
       setProfile(result.data.data);
     } catch (error) {
@@ -36,7 +37,7 @@ const Profile = () => {
     try {
       const result = await axios({
         method: "GET",
-        baseURL: "http://localhost:4000/v1",
+        baseURL: process.env.URL,
         url: `/recipe`,
       });
       // console.log(result);
@@ -58,7 +59,7 @@ const Profile = () => {
       },
       // withCredentials : true
     }
-    axios.delete(`http://localhost:4000/v1/recipe/${idrecipe}`, config)
+    axios.delete(`${process.env.URL}/recipe/${idrecipe}`, config)
     .then(() => {
       swal("Good job!", "Delete Recipe Success!", "success");
     });
@@ -68,7 +69,7 @@ const Profile = () => {
       <MyLayout title="Profile - Food Recipe" />
       <div className={styles.container}>
         <div className={styles.profileImage}>
-        <img src={profile.image ? profile.image : "/assets/Ellipse 127.png"} alt="profile" />
+        <img src={profile.image ? profile.image : "/assets/profile default.jpg"} alt="profile" />
         </div>
         <p>{profile.name}</p>
         <div className={styles.list}>
@@ -88,6 +89,7 @@ const Profile = () => {
         <div className={styles.myRecipe}>
           <div className='row row-cols-5'>
             {recipe.map((item) => (
+              // eslint-disable-next-line react/jsx-key
               <div className={styles.Cards}>
                 <Cards src={item.image} title={item.title} />
                 <div className={styles.editBtn}>

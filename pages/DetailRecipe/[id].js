@@ -7,14 +7,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const detailRecipe = () => {
-  const router = useRouter();
-  const id = router.query.id;
+  const Router = useRouter();
+  const id = Router.query.id;
   const [detailRecipe, setDetailRecipe] = useState([]);
   async function fetchData(id) {
     try {
       const result = await axios({
         method: "GET",
-        baseURL: "http://localhost:4000/v1",
+        baseURL: process.env.URL,
         url: `/recipe/${id}`,
       });
       console.log(result);
@@ -45,7 +45,7 @@ const detailRecipe = () => {
             title={<img src="/assets/Vector (2).png" />}
             width="300px"
             height="50px"
-            onClick={()=>router.push(detailRecipe.video)}
+            onClick={()=>Router.push(detailRecipe.video)}
           />
         </div>
       </div>

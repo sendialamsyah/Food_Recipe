@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from "../../styles/Auth.module.css";
 import Input from "../../components/base/Input";
 import Button from "../../components/base/Button";
@@ -34,7 +35,7 @@ const Login = () => {
   // };
   const handleLogin = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:4000/v1/user/login', dataLogin)
+    axios.post(`${process.env.URL}/user/login`, dataLogin)
     .then((res)=>{
       const respData = res.data.data
       console.log(respData);

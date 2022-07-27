@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import MyLayout from "../components/layout/MyLayout";
 import styles from "../styles/Home.module.css";
@@ -43,6 +44,7 @@ const Home = ({ recipes }) => {
       <div className={styles.warpperCard}>
         <div className={`row row-cols-5 ${styles.row}`}>
           {recipes.map((item) => (
+            // eslint-disable-next-line react/jsx-key
             <div>
               <button
                 onClick={() => Router.push(`DetailRecipe/${item.idrecipe}`)}
@@ -67,7 +69,7 @@ export async function getServerSideProps(context) {
   //   return {}
   // }
   const { data: resData } = await axios.get(
-    `${process.env.BACKEND_API}/recipe`
+    `${process.env.URL}/recipe`
   );
   return {
     props: {

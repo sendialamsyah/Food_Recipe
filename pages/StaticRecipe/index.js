@@ -17,7 +17,7 @@ const StaticRecipe = ({recipes}) => {
 };
 
 export async function getStaticProps(context) {
-  const { data: resData } = await axios.get("http://localhost:4000/v1/recipe");
+  const { data: resData } = await axios.get(`${process.env.URL}/recipe`);
   return {
     props: {
       recipes: resData.data,

@@ -14,7 +14,7 @@ const EditRecipe = () => {
     try {
       const result = await axios({
         method: "GET",
-        baseURL: "http://localhost:4000/v1",
+        baseURL: process.env.URL,
         url: `/recipe/${id}`,
       });
       // console.log(result);
@@ -66,7 +66,7 @@ const EditRecipe = () => {
       // withCredentials : true
     }
     await axios
-      .put(`http://localhost:4000/v1/recipe/${id}`, formData, config)
+      .put(`${process.env.URL}/recipe/${id}`, formData, config)
       .then(() => {
         swal("Good job!", "Insert Recipe Success!", "success");
         Router.push("/Profile");

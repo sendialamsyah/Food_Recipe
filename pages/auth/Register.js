@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from "../../styles/Auth.register.module.css";
 import Input from "../../components/base/Input";
 import Button from "../../components/base/Button";
@@ -22,7 +23,7 @@ const Register = () => {
   }
   const handleRegister=(e)=>{
     e.preventDefault()
-    axios.post('http://localhost:4000/v1/user/register', dataRegister)
+    axios.post(`${process.env.URL}/user/register`, dataRegister)
     .then(()=>{
       swal("Good job!", "Register Success!", "success");
       router.push('/auth/Login')
