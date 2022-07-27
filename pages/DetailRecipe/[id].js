@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable @next/next/no-img-element */
 import MyLayout from "../../components/layout/MyLayout";
 import styles from "../../styles/DetailRecipe.module.css";
 import Button from "../../components/base/Button";

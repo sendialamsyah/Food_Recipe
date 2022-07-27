@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import MyLayout from "../../components/layout/MyLayout";
 import styles from "../../styles/AddRecipe.module.css";
 import Button from "../../components/base/Button";
