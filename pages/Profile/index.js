@@ -12,6 +12,7 @@ const Profile = () => {
   const Router = useRouter();
   const [recipe, setRecipe] = useState([]);
   const [profile, setProfile] = useState([])
+  // console.log(profile)
   async function getProfile() {
     try {
       const token = localStorage.getItem('token')
@@ -71,7 +72,9 @@ const Profile = () => {
         <div className={styles.profileImage}>
         <img src={profile.image ? profile.image : "/assets/profile default.jpg"} alt="profile" />
         </div>
-        <p>{profile.name}</p>
+        <p>{profile.name} <span className={styles.iconEdit} onClick={() => Router.push(`/EditProfile/${profile.iduser}`)}>
+            <img src='/assets/Iconsmind-Outline-Pencil.ico' alt='icon'/>
+          </span></p>
         <div className={styles.list}>
           <ul>
             <li>

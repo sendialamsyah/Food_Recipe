@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React from "react";
 import styles from "./navbar.module.css";
@@ -7,12 +8,11 @@ import { useState } from "react";
 
 const Navbar = () => {
   const router = useRouter();
-  // const [isLogin, setIsLogin] = useState(false)
-  // const login = () =>{
-  //   setIsLogin(localStorage.getItem('token'))
-  //   isLogin(true)
-  // }
-
+  const [isLogin, setIsLogin] = useState(false)
+  const login = () =>{
+    localStorage.getItem('token')
+    setIsLogin(true)
+  }
   const handleLogout = async () => {
     try {
       const result = await fetch("api/Logout");
@@ -38,33 +38,33 @@ const Navbar = () => {
           <Link href="/Profile">Profile</Link>
         </li>
       </ul>
-      {/* <ul className={styles.links}>
+      <ul className={styles.links}>
         <li>
           <div className={styles.profile}>
-            {login === 'false' ? (
+            {login?
               <Link href="auth/Login">
                 <ul className={styles.liProfile}>
                   <li>
-                    <img src="/assets/User icon.png" />
+                    <img src="/assets/User icon.png" alt='icon' />
                   </li>
                   <li>
                     <p>Login</p>
                   </li>
                 </ul>
               </Link>
-            ) : (
+             : 
               <ul className={styles.liProfile}>
                 <li>
-                  <img src="/assets/User icon.png" />
+                  <img src="/assets/User icon.png" alt='icon' />
                 </li>
                 <li>
                   <p onClick={handleLogout}>Logout</p>
                 </li>
               </ul>
-            )}
+            }
           </div>
         </li>
-      </ul> */}
+      </ul>
     </nav>
   );
 };

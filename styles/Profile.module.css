@@ -124,3 +124,34 @@
 .warpperCard {
   gap: 1px;
 }
+
+.iconEdit {
+  margin-top: -10px;
+  margin-left: 10px;
+}
+.iconEdit img{
+  
+  width: 30px;
+  height: 30px;
+}
+
+.myProfile {
+  display: flex;
+  justify-content: center;
+}
+
+.insertImage {
+  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+}
+
+.insertImage img {
+  width: 100%px;
+  height: 100%px;
+  object-fit: cover;
+}
