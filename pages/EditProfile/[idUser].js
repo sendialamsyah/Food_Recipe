@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -13,6 +14,7 @@ const Profile = () => {
   const Router = useRouter();
   const idUser = Router.query.idUser;
   const [profile, setProfile] = useState([]);
+  const [isLogin, setIsLogin] = useState(false)
   async function getProfile(idUser) {
     try {
       const token = localStorage.getItem("token");
@@ -40,6 +42,7 @@ const Profile = () => {
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  
 
   const handleChangeImage = (e) => {
     setImage({
@@ -74,7 +77,14 @@ const Profile = () => {
         console.log(error);
       });
   };
-
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(token){
+      setIsLogin(true)
+    }else{
+      Router.push('/auth/Login')
+    }
+  },[])
   return (
     <div>
       <MyLayout title="Profile - Food Recipe" />

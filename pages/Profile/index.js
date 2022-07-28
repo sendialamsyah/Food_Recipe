@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -12,6 +13,7 @@ const Profile = () => {
   const Router = useRouter();
   const [recipe, setRecipe] = useState([]);
   const [profile, setProfile] = useState([])
+  const [isLogin, setIsLogin] = useState(false)
   // console.log(profile)
   async function getProfile() {
     try {
@@ -33,7 +35,15 @@ const Profile = () => {
   useEffect(() => {
     getProfile();
   }, []);
-  console.log(profile)
+
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(token){
+      setIsLogin(true)
+    }else{
+      Router.push('/auth/Login')
+    }
+  },[])
   async function fetchData() {
     try {
       const result = await axios({

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @next/next/no-img-element */
@@ -13,6 +14,7 @@ const detailRecipe = () => {
   const Router = useRouter();
   const id = Router.query.id;
   const [detailRecipe, setDetailRecipe] = useState([]);
+  const [isLogin, setIsLogin] = useState(false)
   async function fetchData(id) {
     try {
       const result = await axios({
@@ -29,6 +31,15 @@ const detailRecipe = () => {
   useEffect(() => {
     fetchData(id);
   }, [id]);
+
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(token){
+      setIsLogin(true)
+    }else{
+      Router.push('/auth/Login')
+    }
+  },[])
   return (
     <div className={styles.container}>
       <MyLayout title="Detail Recipe - Food Recipe" />

@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import MyLayout from "../components/layout/MyLayout";
 import styles from "../styles/AddRecipe.module.css";
 import Button from "../components/base/Button";
 import Footer from "../components/module/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from 'next/router'
 import TextArea from '../components/base/TextArea'
@@ -15,6 +16,7 @@ const AddRecipe = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [video, setVideo] = useState("");
+  const [isLogin, setIsLogin] = useState(false)
 
   const handleChangeImage = (e) => {
     setImage({
@@ -62,6 +64,14 @@ const AddRecipe = () => {
       });
   };
 
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(token){
+      setIsLogin(true)
+    }else{
+      Router.push('/auth/Login')
+    }
+  },[])
   return (
     <div>
       <MyLayout title="Add Recipe - Food Recipe" />
