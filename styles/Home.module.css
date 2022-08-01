@@ -148,3 +148,23 @@
 .warpperCard .row{
   row-gap: 50px;
 }
+
+.title button{
+  position: absolute;
+  top: 265px;
+  left: 325px;
+}
+
+.btnSort {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+.btnPagination {
+  display: flex;
+  justify-content: center;
+  margin-top: -10px;
+}

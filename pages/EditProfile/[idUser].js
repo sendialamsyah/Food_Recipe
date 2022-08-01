@@ -128,7 +128,7 @@ const Profile = () => {
               type="name"
               name="name"
               id="name"
-              value={name}
+              defaultValue={name}
               placeholder="Name"
               onChange={(e) => setName(e.target.value)}
             />
@@ -137,7 +137,7 @@ const Profile = () => {
               type="phoneNumber"
               name="phoneNumber"
               id="phoneNumber"
-              value={phoneNumber}
+              defaultValue={phoneNumber}
               placeholder="PhoneNumber"
               onChange={(e) => setPhoneNumber(e.target.value)}
             />

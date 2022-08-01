@@ -90,12 +90,6 @@ const Profile = () => {
             <li>
               <Link href="">My Recipe</Link>
             </li>
-            <li>
-              <Link href="">Saved Recipe</Link>
-            </li>
-            <li>
-              <Link href="">Liked Recipe</Link>
-            </li>
           </ul>
           <hr />
         </div>
