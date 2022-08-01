@@ -5,7 +5,6 @@ import styles from "../styles/Home.module.css";
 import Footer from "../components/module/Footer";
 import Button from "../components/base/Button";
 import axios from "axios";
-import Link from "next/link";
 import Cards from "../components/module/Cards";
 import { useRouter } from "next/router";
 
@@ -30,15 +29,14 @@ const Home = ({ recipes, pagination }) => {
   for (let i = 0; i < pagination.totalPage; i++) {
     buttonPagination.push(
       <Button
-      width='30px'
-      height='30px'
+        width="30px"
+        height="30px"
         onClick={() => {
           setPage((current) => ({ ...current, page: i + 1 }));
           Router.push(`/?page=${i + 1}&limit=${page.limit}`);
         }}
         title={i + 1}
-      >
-      </Button>
+      ></Button>
     );
   }
 
@@ -80,13 +78,17 @@ const Home = ({ recipes, pagination }) => {
         <h1>Popular Recipe</h1>
       </div>
       <div className={styles.btnSort}>
-        <select name="sort" id="sort" onChange={(e) => {
-                    e.target.value !== "none" && Router.push(`/?sortby=${"title"}&sort=${e.target.value}`);
-                  }}>
-                  <option value="none">Sort by Title</option>
-                  <option value="ASC">(A-Z)</option>
-                  <option value="DESC">(Z-A)</option>
-
+        <select
+          name="sort"
+          id="sort"
+          onChange={(e) => {
+            e.target.value !== "none" &&
+              Router.push(`/?sortby=${"title"}&sort=${e.target.value}`);
+          }}
+        >
+          <option value="none">Sort by Title</option>
+          <option value="ASC">(A-Z)</option>
+          <option value="DESC">(Z-A)</option>
         </select>
       </div>
       <div className={styles.warpperCard}>
@@ -104,7 +106,7 @@ const Home = ({ recipes, pagination }) => {
           ))}
         </div>
       </div>
-        <div className={styles.btnPagination}>{buttonPagination}</div>
+      <div className={styles.btnPagination}>{buttonPagination}</div>
       <Footer />
     </div>
   );
