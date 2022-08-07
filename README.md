@@ -77,7 +77,7 @@ Contributions are what make the open source community such an amazing place to b
 | ------------- | ------------- |
 | ![add recipe](/images/add.jpg?raw=true "Add Recipe Page") | ![detail recipe](/images/detail.jpg?raw=true "Detail Recipe Page")|
 
-| Profile Page |  | Edit Recipe |
+| Profile Page | Edit Recipe |
 | ------------- | ------------- |
 | ![profile](/images/profile.jpg?raw=true "Profile Page") | ![edit recipe](/images/edit.jpg?raw=true "Edit Page") |
 
