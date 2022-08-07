@@ -1,34 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Related Project](#related-project)
+* [Screenshot](#screenshot)
+* [Contact](#contact)
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+
+Mama Recipe is a web-based application where users can view recipes and videos shared by other users. Users can also share, update and delete recipes. This application was developed using Node Js, Next Js.
+This Application use Rest API server from [Mama Recipe API](https://food-recipe22.herokuapp.com/)
+
+### Built With
+
+* [Node JS](https://nodejs.org/en/docs/)
+* [Next JS](https://nextjs.org/)
+
+
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
+This is an example of how to list things you need to use the software and how to install them.
+
+* [nodejs](https://nodejs.org/en/download/)
+
+### Installation
+
+1. Clone the repo
+```sh
+git clone https://github.com/sendialamsyah/Food_Recipe_FE.git
+```
+2. Install NPM packages
+```sh
+npm install
+```
+3. Add .env file at root folder project, and add following
+```sh
+NEXT_PUBLIC_BACKEND_API = https://food-recipe22.herokuapp.com/ // or use your own
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!-- CONTRIBUTING -->
+## Contributing
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b your/branch`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/yourbranch`)
+5. Open a Pull Request
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<!-- SCREENSHOT -->
+## Screenshot
 
-## Learn More
+| Register Page  | Login Page |
+| ------------- | ------------- |
+| ![register](/images/register.jpg?raw=true "Landing Page") | ![login](/images/login.jpg?raw=true "Login Page") |
 
-To learn more about Next.js, take a look at the following resources:
+| Add Recipe Page | Detail Page |
+| ------------- | ------------- |
+| ![add recipe](/images/add.jpg?raw=true "Add Recipe Page") | ![detail recipe](/images/detail.jpg?raw=true "Detail Recipe Page")|
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Profile Page | Recipe List Page |
+| ------------- | ------------- |
+| ![profile](/images/profile.jpg?raw=true "Profile Page") | ![recipe list](/images/foodlist.jpg?raw=true "Recipe Page") |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Landing Page | Edit Recipe |
+| ------------- | ------------- |
+| ![landing](/images/landing.jpg?raw=true "Landing Page") | ![edit recipe](/images/edit.jpg?raw=true "Efit Page") |
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<!-- RELATED PROJECT -->
+## Related Project
+* [`Mama Recipe Demo`](https://food-recipe-orpin.vercel.app/)
+* [`Mama Recipe Rest API`](https://food-recipe22.herokuapp.com/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+<!-- CONTACT -->
+## Contact
+
+Contributors names and contact info
+
+* Sendi Alamsyah [@sendialamsyah](https://github.com/sendialamsyah)
