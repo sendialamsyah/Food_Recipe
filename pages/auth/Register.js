@@ -38,9 +38,6 @@ const Register = () => {
     <>
       <div className={`row ${styles.container}`}>
         <div className={`col-5 ${styles.bgImage}`}>
-          <div>
-            <img src='/assets/image 15.png' alt='img' className={styles.background}/>
-          </div>
         </div>
         <div className={styles.icon}>
         <img

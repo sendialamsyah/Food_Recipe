@@ -1,15 +1,18 @@
 .container .bgImage {
   /* border: 1px solid red; */
   height: 610px;
-  overflow: hidden;
+  background-position: center;
   /* background-size: cover;
-  background: #EFC81A;
-  background-image: linear-gradient(#EFC81A, #FFF) */
+  background: #EFC81A; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(#efc81a80 100%, #fff), url('../public/assets/image\ 15.png');
+  
 }
-.background {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.container .bgImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .icon {
   position: absolute;
