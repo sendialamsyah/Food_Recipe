@@ -47,7 +47,7 @@ npm install
 ```
 3. Add .env file at root folder project, and add following
 ```sh
-NEXT_PUBLIC_BACKEND_API = https://food-recipe22.herokuapp.com/ // or use your own
+URL = https://food-recipe22.herokuapp.com/ // or use your own
 
 ```
 
