@@ -7,7 +7,7 @@ module.exports = nextConfig
 
 module.exports = {
   env: {
-    URL: 'https://zany-blue-pelican-tam.cyclic.app/v1',
+    URL: 'https://foodrecipebe.up.railway.app/v1',
     // URL: 'http://localhost:4000/v1',
   },
 }

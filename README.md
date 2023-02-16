@@ -17,7 +17,7 @@
 
 
 Mama Recipe is a web-based application where users can view recipes and videos shared by other users. Users can also share, update and delete recipes. This application was developed using Node Js, and Next Js.
-This Application use Rest API server from [Mama Recipe API](https://food-recipe22.herokuapp.com/)
+This Application use Rest API server from [Mama Recipe API](https://foodrecipebe.up.railway.app/)
 
 ### Built With
 
@@ -47,7 +47,7 @@ npm install
 ```
 3. Add .env file at root folder project, and add following
 ```sh
-URL = https://food-recipe22.herokuapp.com/ // or use your own
+URL = https://foodrecipebe.up.railway.app/ // or use your own
 
 ```
 
@@ -85,7 +85,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- RELATED PROJECT -->
 ## Related Project
 * [`Mama Recipe Demo`](https://food-recipe-orpin.vercel.app/)
-* [`Mama Recipe Rest API`](https://food-recipe22.herokuapp.com/)
+* [`Mama Recipe Rest API`](https://foodrecipebe.up.railway.app/)
 * [`Mama Recipe Backend Repository`](https://github.com/sendialamsyah/Food_Recipe_BE)
 
 
